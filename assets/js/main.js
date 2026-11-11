@@ -6,12 +6,12 @@
 const SITE = {
   // Paste full URLs when the accounts are ready. Empty = "coming soon".
   social: {
-    youtube: "",    // e.g. "https://www.youtube.com/@beardontheroam"
-    instagram: "",  // e.g. "https://www.instagram.com/beardontheroam"
+    youtube: "https://www.youtube.com/@beardontheroam",
+    instagram: "https://www.instagram.com/beardontheroam",
   },
 
   // The email shown on the contact page AND where the form sends messages.
-  contactEmail: "",  // e.g. "hello@beardontheroam.com"
+  contactEmail: "beardontheroam@gmail.com",
 
   // Big banner at the top of the home page. Drop the file in assets/img and it shows up.
   // Until the file exists, the page shows the logo over a dark mountain backdrop instead.
@@ -74,7 +74,7 @@ $$("[data-social]").forEach((a) => {
   }
 });
 $$("[data-status]").forEach((el) => {
-  if (SITE.social[el.dataset.status]) el.textContent = "Live now. Tap to follow";
+  if (SITE.social[el.dataset.status]) el.textContent = el.dataset.status === "youtube" ? "@beardontheroam // Subscribe" : "@beardontheroam // Follow";
 });
 
 /* ---------- episodes ---------- */
