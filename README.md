@@ -5,11 +5,15 @@ Off road, fishing, and camp life. Home of the **Get Lost** project.
 Plain HTML, CSS, and JavaScript. No build step.
 
 ## Pages
-| File | What it is |
-|---|---|
-| `index.html` | Home: hero, what we do, episodes, trail code, about teaser, follow links |
-| `about.html` | The full story |
-| `contact.html` | Email + contact form |
+Each page is a folder with an `index.html` inside, so URLs stay clean.
+
+| URL | File | What it is |
+|---|---|---|
+| `/` | `index.html` | Home: banner, what we do, episodes, trail code, about teaser, follow links |
+| `/about/` | `about/index.html` | The full story |
+| `/contact/` | `contact/index.html` | Email + contact form |
+
+All links and asset paths are relative, so the site works at a custom domain or at a GitHub Pages project address. To add a new page, make a folder (for example `gear/index.html`) and prefix its asset paths with `../`.
 
 ## Things to fill in later
 Everything lives at the top of `assets/js/main.js` in the `SITE` block:
@@ -35,11 +39,12 @@ After you set `contactEmail` and publish, send one test message from the live si
 FormSubmit emails you an activation link. Click it, and every message after that lands in your inbox.
 
 ## Run it locally
-Open `index.html` in a browser, or:
+Use a local server so the folder URLs work:
 
 ```bash
 python3 -m http.server 8000
 ```
+Then open http://localhost:8000
 
 ## Publish free with GitHub Pages
 Repo **Settings > Pages > Deploy from a branch > main / root**.
