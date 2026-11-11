@@ -138,9 +138,10 @@ body::after {
   .nav ul {
     position: fixed; inset: 0; background: var(--pine);
     flex-direction: column; justify-content: center; gap: 22px;
-    transform: translateY(-100%); transition: transform .3s ease;
+    transform: translateY(-100%); visibility: hidden; overflow-y: auto;
+    transition: transform .3s ease, visibility 0s linear .3s;
   }
-  .nav ul.is-open { transform: none; }
+  .nav ul.is-open { transform: none; visibility: visible; transition: transform .3s ease; }
   .nav a { font-family: var(--display); font-size: 44px; letter-spacing: .02em; }
   .nav-cta { font-size: 36px !important; }
   .brand-name { font-size: 22px; }
@@ -153,6 +154,7 @@ body::after {
   position: relative; overflow: hidden;
   /* tall enough to feel big, short enough that the centered logo never gets cropped */
   height: clamp(420px, 62vw, 92svh);
+  background-color: var(--pine);
   display: flex; flex-direction: column; justify-content: center; align-items: center;
   padding: 80px var(--gutter) 0;
   background:
@@ -160,6 +162,7 @@ body::after {
     linear-gradient(180deg, #2E322E 0%, #1B1F1C 55%, var(--pine) 100%);
 }
 .banner.has-photo { background-size: cover; background-position: center; background-repeat: no-repeat; }
+.banner.has-photo::after { height: 14%; }
 .banner.has-photo .topo, .banner.has-photo .banner-ridge { display: none; }
 .banner.has-photo .banner-logo { visibility: hidden; }
 .banner::after { /* fade into the page */
@@ -205,6 +208,9 @@ body::after {
   .hero-inner { grid-template-columns: 1fr; }
   .hero-title { font-size: clamp(110px, 34vw, 200px); }
   .banner { padding-top: 70px; }
+  /* photo banner on phones: sit below the header and keep the baked-in logo uncropped */
+  .banner.has-photo { margin-top: 72px; height: clamp(200px, 70vw, 420px); padding: 0; }
+  .banner.has-photo .hero-foot { display: none; }
   .banner-title { width: 92%; }
   .hero-foot span:nth-child(2) { display: none; }
 }

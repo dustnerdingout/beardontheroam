@@ -16,7 +16,7 @@ Everything lives at the top of `assets/js/main.js` in the `SITE` block:
 
 1. **YouTube / Instagram:** paste the full URLs into `social`. Every button on every page updates.
 2. **Email:** put the address in `contactEmail`. It shows on the contact page and the form starts sending to it.
-3. **Home banner:** save your mountain banner as `assets/img/hero-banner.jpg`. It replaces the placeholder at the top of the home page automatically. Until then the logo shows over a dark mountain backdrop.
+3. **Home banner:** lives at `assets/img/hero-banner.jpg`. To swap it, replace that file with a new one of the same shape (wide, logo centered). Delete it and the page falls back to the logo over a dark mountain backdrop.
 4. **Episodes:** add `{ title, meta, url }` entries. Leave `thumb` empty and the YouTube thumbnail is used.
 
 ## Logo files (`assets/img`)
