@@ -16,7 +16,18 @@ Everything lives at the top of `assets/js/main.js` in the `SITE` block:
 
 1. **YouTube / Instagram:** paste the full URLs into `social`. Every button on every page updates.
 2. **Email:** put the address in `contactEmail`. It shows on the contact page and the form starts sending to it.
-3. **Episodes:** add `{ title, meta, url }` entries. Leave `thumb` empty and the YouTube thumbnail is used.
+3. **Home banner:** save your mountain banner as `assets/img/hero-banner.jpg`. It replaces the placeholder at the top of the home page automatically. Until then the logo shows over a dark mountain backdrop.
+4. **Episodes:** add `{ title, meta, url }` entries. Leave `thumb` empty and the YouTube thumbnail is used.
+
+## Logo files (`assets/img`)
+| File | Use |
+|---|---|
+| `wordmark.webp` / `.png` | Full logo with text, transparent background |
+| `mark.webp` / `.png` | Mountain and beard only, transparent background |
+| `logo-on-dark.webp`, `mark-on-dark.webp` | Versions on the dark textured background |
+| `favicon-64.png`, `apple-touch-icon.png`, `icon-512.png` | Browser tab and phone home screen icons |
+| `og-banner.jpg` | Preview image when the link is shared |
+| `legacy/` | Original vector logo and illustrations, kept for reference |
 
 ### Contact form setup (one time)
 The form uses [FormSubmit](https://formsubmit.co/) so no server is needed.

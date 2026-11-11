@@ -13,12 +13,16 @@ const SITE = {
   // The email shown on the contact page AND where the form sends messages.
   contactEmail: "",  // e.g. "hello@beardontheroam.com"
 
+  // Big banner at the top of the home page. Drop the file in assets/img and it shows up.
+  // Until the file exists, the page shows the logo over a dark mountain backdrop instead.
+  heroBanner: "assets/img/hero-banner.jpg",
+
   // Episode cards on the home page. Add newest first.
   // url: YouTube link. thumb: image path or leave "" to use the YouTube thumbnail automatically.
   episodes: [
-    { title: "Episode 01", meta: "Coming soon", url: "", thumb: "assets/img/landscape-left.jpg" },
-    { title: "Episode 02", meta: "Coming soon", url: "", thumb: "assets/img/landscape-right.jpg" },
-    { title: "Episode 03", meta: "Coming soon", url: "", thumb: "assets/img/og-banner.jpg" },
+    { title: "Episode 01", meta: "Coming soon", url: "", thumb: "" },
+    { title: "Episode 02", meta: "Coming soon", url: "", thumb: "" },
+    { title: "Episode 03", meta: "Coming soon", url: "", thumb: "" },
   ],
 };
 
@@ -49,6 +53,17 @@ if (toggle && list) {
   document.addEventListener("keydown", (e) => e.key === "Escape" && setOpen(false));
 }
 
+/* ---------- home banner photo ---------- */
+const banner = $("#banner");
+if (banner && SITE.heroBanner) {
+  const probe = new Image();
+  probe.onload = () => {
+    banner.style.backgroundImage = `url("${SITE.heroBanner}")`;
+    banner.classList.add("has-photo");
+  };
+  probe.src = SITE.heroBanner;
+}
+
 /* ---------- social links ---------- */
 $$("[data-social]").forEach((a) => {
   const url = SITE.social[a.dataset.social];
@@ -72,7 +87,7 @@ if (grid) {
   grid.innerHTML = SITE.episodes
     .map((ep) => {
       const id = youtubeId(ep.url);
-      const thumb = ep.thumb || (id ? `https://i.ytimg.com/vi/${id}/hqdefault.jpg` : "assets/img/og-banner.jpg");
+      const thumb = ep.thumb || (id ? `https://i.ytimg.com/vi/${id}/hqdefault.jpg` : "assets/img/logo-on-dark.webp");
       const live = Boolean(ep.url);
       const tag = live ? "a" : "div";
       const attrs = live ? `href="${ep.url}" target="_blank" rel="noopener"` : `aria-label="${ep.title}, coming soon"`;
